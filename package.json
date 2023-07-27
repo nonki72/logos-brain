@@ -1,0 +1,27 @@
+{
+  "name": "brain.js-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx ts-node ./index.ts",
+    "build": "webpack --config webpack.config.js",
+    "serve": "webpack-dev-server --config webpack.config.dev.js --open",
+    "prepublish-gh-pages": "webpack --config webpack.config.gh-pages.js",
+    "publish-gh-pages": "npm run prepublish-gh-pages; gh-pages -d .gh-pages",
+    "lint": "run-p lint:**",
+    "lint:eslint": "eslint --fix --ext .js,.ts src",
+    "lint:typecheck": "tsc --noEmit"
+  },
+  "author": "Jordan Cote",
+  "license": "MIT",
+  "dependencies": {
+    "brain.js": "^2.0.0-beta.23",
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}
