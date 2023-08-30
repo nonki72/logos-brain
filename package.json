@@ -1,9 +1,8 @@
 {
-  "name": "brain.js-prototype",
+  "name": "logos-brain",
   "version": "1.0.0",
-  "description": "",
+  "description": "Logos trainer of brain.js",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "npx ts-node ./index.ts",
     "build": "webpack --config webpack.config.js",
@@ -17,11 +16,20 @@
   "author": "Jordan Cote",
   "license": "MIT",
   "dependencies": {
+    "async": "^3.2.4",
     "brain.js": "^2.0.0-beta.23",
+    "brainjs": "^0.7.4",
     "copy-webpack-plugin": "^11.0.0",
+    "fs": "^0.0.1-security",
+    "readline": "^1.3.0",
+    "util": "^0.12.5",
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
+    "@types/node": "^20.4.5",
     "webpack-cli": "^5.1.4"
+  },
+  "ts-node": {
+    "esm": true
   }
 }
