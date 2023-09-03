@@ -8,8 +8,11 @@ import { LSTM } from 'brain.js/dist/recurrent/lstm';
 async function loadTrainingData(cb: (err?:string, value?:string[]) => void) {
     const trainingData: string[] = [];
     const file = await open('./corpus/hatsune-miku/lyrics/hatsune-miku-lyrics.txt');
+    var i = 0;
     for await (const line of file.readLines()) {
         trainingData.push(line);
+        i++;
+        if (i >= 20) break;
     }
     cb(undefined, trainingData);
 }
@@ -17,7 +20,7 @@ async function loadTrainingData(cb: (err?:string, value?:string[]) => void) {
 // train the model
 function train(lstm: LSTM, trainingData:string[]) {
   const result = lstm.train(trainingData, {
-    iterations: 20, // this is a maximum
+    iterations: 1500, // this is a maximum
     log: (details: string) => console.log(details),
     errorThresh: 0.011,
   });
